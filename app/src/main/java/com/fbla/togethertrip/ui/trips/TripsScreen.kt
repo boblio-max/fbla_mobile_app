@@ -25,7 +25,7 @@ fun TripsScreen(nav: NavController, vm: TripsViewModel = hiltViewModel()) {
     val trips by vm.trips.collectAsState()
     var showDialog by remember { mutableStateOf(false) }
     var err by remember { mutableStateOf<String?>(null) }
-    Scaffold(topBar = { TopAppBar(title = { Text("TogetherTrip") }) },
+    Scaffold(topBar = { TopAppBar(title = { Text("TogetherTrip") }, actions = { IconButton(onClick = { nav.navigate("about") }) { Icon(Icons.Filled.Info, "About") } }) },
         floatingActionButton = { FloatingActionButton(onClick = { showDialog = true }) { Icon(Icons.Filled.Add, "New trip") } }) { pad ->
         Column(Modifier.padding(pad).fillMaxSize()) {
             if (trips.isEmpty()) Box(Modifier.fillMaxSize(), contentAlignment = androidx.compose.ui.Alignment.Center) {

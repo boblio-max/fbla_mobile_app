@@ -6,6 +6,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.fbla.togethertrip.ui.about.AboutScreen
 import com.fbla.togethertrip.ui.trips.TripsScreen
 import com.fbla.togethertrip.ui.detail.TripDetailScreen
 
@@ -19,6 +20,7 @@ object Routes {
 fun AppNav(nav: NavHostController) {
     NavHost(navController = nav, startDestination = Routes.TRIPS) {
         composable(Routes.TRIPS) { TripsScreen(nav) }
+        composable("about") { AboutScreen(nav) }
         composable(
             Routes.DETAIL,
             arguments = listOf(navArgument("tripId") { type = NavType.StringType })
